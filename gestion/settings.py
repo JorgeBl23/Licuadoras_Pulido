@@ -53,45 +53,45 @@ INSTALLED_APPS = [
 
 # Package                  Version
 # ------------------------ -----------
-# arabic-reshaper          2.1.3
-# asgiref                  3.5.2
-# asn1crypto               1.5.1
-# certifi                  2022.6.15
-# cffi                     1.15.1
-# charset-normalizer       2.1.0
-# click                    8.1.3
-# colorama                 0.4.5
-# crispy-bootstrap5        0.6
-# cryptography             37.0.4
-# cssselect2               0.6.0
-# Django                   4.0.4
-# django-crispy-forms      1.14.0
-# django-phonenumber-field 6.1.0
-# django-userforeignkey    0.4.0
-# djangorestframework      3.13.1
-# future                   0.18.2
-# html5lib                 1.1
-# idna                     3.3
-# lxml                     4.9.1
-# mysqlclient              2.1.0
-# oscrypto                 1.3.0
-# phonenumbers             8.12.49
-# Pillow                   9.1.1
-# pip                      22.1
-# pycparser                2.21
-# pyHanko                  0.13.2
-# pyhanko-certvalidator    0.19.5
-# PyMySQL                  1.0.2
-# PyPDF3                   1.0.6
-# python-bidi              0.4.2
-# pytz                     2022.1
-# pytz-deprecation-shim    0.1.0.post0
-# PyYAML                   6.0
-# qrcode                   7.3.1
-# reportlab                3.6.11
-# urllib3                  1.26.11
-# webencodings             0.5.1
-# xhtml2pdf                0.2.8
+# arabic-reshaper==2.1.3
+# asgiref==3.5.2
+# asn1crypto==1.5.1
+# certifi==2022.6.15
+# cffi==1.15.1
+# charset-normalizer==2.1.0
+# click==8.1.3
+# colorama==0.4.5
+# crispy-bootstrap5==0.6
+# cryptography==37.0.4
+# cssselect2 ==0.6.0
+# Django==4.0.4
+# django-crispy-forms== 1.14.0
+# django-phonenumber-field==6.1.0
+# django-userforeignkey == 0.4.0
+# djangorestframework == 3.13.1
+# future  ==0.18.2
+# html5lib == 1.1
+# idna == 3.3
+# lxml == 4.9.1
+# mysqlclient == 2.1.0
+# oscrypto ==1.3.0
+# phonenumbers== 8.12.49
+# Pillow  == 9.1.1
+# pip ==22.1
+# pycparser==2.21
+# pyHanko ==0.13.2
+# pyhanko-certvalidator == 0.19.5
+# PyMySQL ==1.0.2
+# PyPDF3 == 1.0.6
+# python-bidi == 0.4.2
+# pytz == 2022.1
+# pytz-deprecation-shim ==0.1.0.post0
+# PyYAML  ==  6.0
+# qrcode  ==  7.3.1
+# reportlab ==3.6.11
+# urllib3 ==  1.26.11
+# webencodings  == 0.5.1
+# xhtml2pdf  == 0.2.8
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -183,6 +183,14 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'gestion\static'
 ]
+
+
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'gestion\static'),
+#     )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
