@@ -1,0 +1,41 @@
+{% load static %}
+{% include "factura/factura.html" %}
+<div class="modal fade show" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" 
+     aria-hidden="true" role="dialog" style="display: block; backdrop-filter: blur(15px);">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 750px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar factura</h5>
+                <a href="{% url 'factura-tfactura' %}" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+            </div>
+            <div class="modal-body">
+                Recuerda que para registrar un factura, debes haber registrado un usuario, tambien un elemento o servicio
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipofactura" value="Compra">
+                            <input class="btn btn-primary my-3" type="submit" value="Compra">
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipofactura" value="Venta">
+                            <input class="btn btn-primary my-3" type="submit" value="Venta">
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="tipofactura" value="Servicios">
+                            <input class="btn btn-primary my-3" type="submit" value="Servicios">
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div> 

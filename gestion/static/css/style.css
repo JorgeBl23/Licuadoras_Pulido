@@ -1,0 +1,100 @@
+.container-s {
+grid-template-columns: 1fr 1fr ;
+}
+.container3 {
+    width: 80% !important;
+    margin-left: 10% !important;
+    position: relative !important;
+}
+.glider{
+    padding: 50px 0px;
+}
+.containedorFinal{
+    padding-left: 16% !important;
+}
+.h2, h2 {
+    padding: 3% !important;
+}
+.card {
+    background: #fff !important;
+    margin: 0px 10px !important;
+    border-radius: 10px !important;
+    background-color: #f8f9fa !important;
+    padding: 20px !important;
+    max-width: 33% !important;
+    min-width: 240px !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 7px !important;
+    box-shadow: 14px 14px 8px -5px rgba(0, 0, 0, 0.442) !important;
+    grid-template-areas:
+        "foto foto"
+        "titulo titulo"
+        "precio descuento"
+        "descripcion descripcion"
+        "vacio fecha";
+}
+.card:hover {
+    transform: scale(1.1) !important;
+    transition: 0.2s ease-in-out !important;
+}
+.card img{
+    border-radius: 5px;
+}
+.item-1f{
+    background-color: coral;
+    grid-area: foto;
+}
+.item-2f {
+    grid-area: titulo;
+    text-align: center;
+}
+.item-3f {
+    font-weight: 600;
+    grid-area: precio;
+    text-align: center;
+}
+.item-4f {
+    color: red;
+    grid-area: descuento;
+    text-align: center;
+}
+.tachado 
+{
+    text-decoration: line-through;
+    color: gray;
+}
+.item-5f {
+    grid-area: descripcion;
+}
+.item-6f {
+    grid-area: fecha;
+    text-align: center;
+}
+.item-7f {
+    grid-area: boton;
+    position: relative;
+    text-align: center;
+    width: 100%; 
+}
+.myButton {
+    line-height: 20px;
+    width: 30%;
+    min-width: 100px;
+    font-weight: 600;
+    box-shadow: rgb(2 62 138) 0px 0px 0px 0px;
+    background-color: rgb(0, 119, 182);
+    display: flex;
+    cursor: pointer;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    font-size: 17px;
+    padding: 10px 9px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.myButton:hover {
+    background-color: #00B4D8;
+}

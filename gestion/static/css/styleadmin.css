@@ -1,0 +1,372 @@
+ .f0 {
+    font-size: 0.8rem;
+  }
+  .f1 {
+    font-size: 0.9rem;
+  }
+  .f2 {
+    font-size: 1rem;
+  }
+  .f3 {
+    font-size: 1.1rem;
+  }
+  .f4 {
+    font-size: 1.2rem;
+  } 
+
+
+.dark-mode h1{
+    color: #e9e9e9;
+}
+
+.dark-mode .indice {
+    color:#c7c7c7;
+}
+
+.borde{
+    width: 80%;              
+    margin: 0 auto;
+}
+
+
+
+/*-------------------------------navbar-----------------------------*/
+header{
+    background: #0b318a;
+    margin: 0 auto;
+}
+.dark-mode header{
+    background-color:#030303;
+    color:#fff;
+}
+.navbar{
+    height: auto; 
+}
+.contenido-navbar{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.logo img{
+    width: 290px;
+}
+.pt2 p{
+    color: #fff;
+    font-size: 15px;
+    padding-top: 22px;
+}
+.salir{
+    background-color: #fff;
+    margin-left: 30px;
+    padding: 6px;
+    border-radius: 50px;
+}
+.salir a{  
+    color: #000;
+}
+.salir img{
+    width: 30px;
+}
+/*-----------------------------Accesibilidad------------------------------*/
+/* .btn {
+    margin-left: 58px;
+    color: #212529;
+    padding: 3px 3px 3px 3px;
+    font-size: 1rem;
+} */
+/*-----------------------Menú de navegación-----------------------------*/
+.nav-menu{
+    background-color: rgb(55, 211, 198);
+    color: #fff;
+}
+.dark-mode .nav-menu {
+    background-color:#181818;
+}
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+/* Style Datatables */
+
+.dark-mode td{
+    color: rgb(190, 188, 188);
+}
+
+.dark-mode tr{ 
+    background-color: #0b318a;
+}
+
+table{
+    background-color: #fff;
+}
+
+.dark-mode th{
+    background-color: #212529;
+    color: #fff;
+}
+
+
+
+.dark-mode table{
+    background-color: #0d1821c0;
+}
+
+nav{
+    background-color: #e6571f;
+}
+.dark-mode nav{
+    background-color:#0b318a;
+    color:#fff;
+}
+.v-line{
+    border-left: thick solid #000;
+    height:100%;
+    left: 50%;
+    border-width:1px;
+}
+@media only screen and (min-width: 992px) {
+    #item{
+        padding: 6px 25px 6px 25px;
+    }
+}
+@media only screen and (min-width: 1250px) {
+    #item{
+        padding: 6px 40px 6px 40px;
+    }
+}
+@media only screen and (min-width: 1602px) {
+    #item{
+        padding: 6px 60px 6px 60px;
+    }
+}
+@media only screen and (min-width: 1917px) {
+    #item{
+        padding: 6px 78px 6px 70px;
+    }
+}
+@media only screen and (min-width: 2400px) {
+    #item{
+        padding: 6px 120px 6px 120px;
+    }
+}
+/*----------------------------------Cuerpo-------------------------------*/
+.cuerpo-admin{
+    background-image: url( '../img/fondo-de-body.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.dark-mode .cuerpo-admin{
+    background-image: url( '../img/fondo-de-body.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+
+}
+.container{
+    background-color: #ffffffd5 !important;
+    height: 100% !important;
+    padding: 3% 19px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.contenido-cuerpo{
+    background-color: #ffffffd5;
+    height: 100%;
+    padding: 3% 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.dark-mode .contenido-cuerpo {
+    background: #00000046;
+}
+.part {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: right;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.btncrear{
+    background-color: #198754;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 20px;
+}
+
+.btncrear:hover{
+    color: #000;
+}
+
+/*---------------------------Botones Inicio----------------------------*/
+.botones{
+    padding: 15px;
+    display: flex;
+    justify-content: center;    
+}
+.margen{
+    margin-bottom: 21px;
+}
+.bt a{ 
+    display: block;
+    text-align: center;
+    padding: 40px 100px;
+    margin-top: 16px;
+    text-decoration: none;
+    color: #fff;
+    /* font-size: larger;
+    font-weight: bolder; */
+    background-color: #e6571f;     
+}
+
+.dark-mode .bt a{
+    background-color: #0b318a;
+}
+
+
+.formulario{
+    overflow: scroll;
+}
+.dark-mode .dataTables_filter label{
+    color: #fff;
+}
+.dark-mode .dataTables_info{
+    color: #fff;
+}
+.dark-mode .color-dark{
+    color: #fff;
+}
+#item {
+    color: #fff;
+}
+.dark-mode #item{
+    color: #fff;
+}
+/*--------------------------------Footer--------------------------------*/
+footer{
+    background-color: #0b318a;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.dark-mode footer{
+    background-color:#141414;
+    color:#fff;
+}
+ .caja{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+ .caja2 a{  
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+}
+.caja1 a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.sublogo{ 
+    width: 50px;
+    position: absolute;
+    border-radius: 50%;
+    padding: 5px;
+    top: -30px;
+    left: 47%;
+}
+.sublogo img{
+    width: 80px;
+}
+.tabla-ver{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100% !important;
+}
+.tabla-ver div{
+    min-width: 200px !important;
+    margin: 0 10px;
+}
+@media (min-width: 420px ){
+    .tabla-ver{
+        width: 100% !important;
+        min-width: 300px !important;
+    }
+    .tabla-ver div{
+        width: 100% !important;
+        min-width: 300px !important;
+    }
+}
+.conttoast{
+    width: 350px !important;
+    height: 120px !important;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: transparent !important;
+}
+.conttoast2{ 
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    position: absolute;
+    top: 17px;
+    left: 0;
+    padding: auto;
+}
+.iconos{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+}
+.coco{
+    background-color: green !important;
+}
+.cco{
+    border: 4px solid green;
+}
+.coer{
+    background-color: red !important;
+}
+.ce{
+    border: 4px solid red;
+}
+.coal{
+    background-color: orange !important;
+}
+.ca{
+    border: 4px solid orange;
+}
+.conttoast3{
+    border-radius: 10px;
+    width: 310px;
+    height: 100%;
+    margin-left: auto;
+    padding: 10px;
+    background-color: #fff;
+}
+.titulo{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.subtitulo{
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-left: 5px;
+}
+
+

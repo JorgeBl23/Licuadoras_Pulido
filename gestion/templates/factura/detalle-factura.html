@@ -1,0 +1,136 @@
+{% extends 'partials/admin-body.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Equipo
+{% endblock title %}
+{% load static %}
+{% block contenido %}
+<div class="cuerpo-admin">
+        <div class="container">
+            <div class="row ">
+                <a href=" {% url 'factura-tfactura' %}"
+                   class="btn d-flex justify-content-center "
+                   style=" margin-top: 25px; margin-bottom: 25px; width: 65px; ">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="currentColor"
+                         class=" opcionesTabla bi bi-arrow-left-square-fill  "
+                         viewBox="0 0 16 16">
+                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="row bg-light p-3">
+                {% if factura.usuario != None %}
+                    <h2>{{ factura.usuario }} - Factura de {{ factura.tipofactura }} N� {{ factura.id }}</h2>
+                {% else %}
+                    <h2 class="txtMainI">Factura {{ factura.id }}</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% if factura.tipofactura != "Servicios" %}
+                            <div id="div_id_usuario" class="mb-3">
+                                <label for="id_usuario" class="form-label requiredField">
+                                    servicio<span class="asteriskField">*</span>
+                                </label>
+                                <select name="usuario"
+                                        class="select form-select select2"
+                                        required=""
+                                        id="id_usuario">
+                                    <option selected>
+                                        --- Seleccione el usuario ---
+                                    </option>
+                                    {% for items in usuario %}
+                                        <option value="{{ items.Uid }}">
+                                            {{ items.Unombre }}
+                                        </option>
+                                    {% endfor %}
+                                     </select>
+                        </div>
+                        <button class="btn btn-primary" name="form-user">Seleccionar usuario</button>
+                                {% else %}
+                                <div id="div_id_servicio" class="mb-3">
+                                <label for="id_servicio" class="form-label requiredField">
+                                    servicio<span class="asteriskField">*</span>
+                                </label>
+                                <select name="servicio"
+                                        class="select form-select select2"
+                                        required=""
+                                        id="id_servicio">
+                                    <option selected>
+                                        --- Seleccione el servicio ---
+                                    </option>
+                                    {% for items in servicio %}
+                                        <option value="{{ items.id }}">
+                                            {{ items.tiposervicio }} a {{ items.electrodomestico }} de {{ items.usuario }} del {{ items.fecha_entrada }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                </div>
+                                <button class="btn btn-primary" name="form-serv">Seleccionar servicio</button>
+                                
+                                {% endif %}
+                           
+                        <div class="iconosOpcion">
+                            <div class="agreproducto">
+                                <a href="{% url 'usuario-crearUsuario' %}"
+                                   class=" btn btn-success btn-block my-2">Crear Usuario</a>
+                            </div>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+            {% if factura.usuario %}
+                <div class="row p-1">
+                    <div class="col-md-4">
+                        <div class="border bg-white p-3">
+                            <h4>Agregar Detalles a la Factura {{ factura.id }}</h4>
+                            <hr>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <button class="btn btn-success btn-block " name="form-detalle">Agregar Factura</button>
+                                <a class="btn btn-danger btn-block text-light"
+                                   href="{% url 'factura_estado' pk=factura.id estado='cerrar' %}">Cerrar Factura</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-8 p-4 bg-white">
+                        <table class="table bg-white table-bordered results dataTable no-footer dtr-inline"
+                               id="proyectos">
+                            <thead class="bg-info">
+                                <tr class="text-white">
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for detalle in detalles %}
+                                    <tr>
+                                        <td class="dtr-control sorting_1">{{ detalle.elemento.nombre }}</td>
+                                        <td class="dt-body-right dtr-hidden">{{ detalle.cantidad }}</td>
+                                        <td class="dt-body-right dtr-hidden">{{ detalle.estado }}</td>
+                                        <td class="dt-body-right dtr-hidden">{{ detalle.elemento.precio }}</td>
+                                        <td>
+                                            <a href="{% url 'detalle_eliminar_estado' detalle.id  %}">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     fill="currentColor"
+                                                     class="opcionesTabla bi bi-trash"
+                                                     viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                    <path fill-rule="evenodd"
+                                                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                </svg>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+</div>
+    {% endblock contenido %}

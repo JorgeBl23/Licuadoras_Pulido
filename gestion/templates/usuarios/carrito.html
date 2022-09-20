@@ -1,0 +1,130 @@
+{% extends 'partials/user-body.html' %}
+{% block contenido %}
+<div class="cuerpo-user">
+    <section class="contenido-cuerpo borde">
+        <h1 class="text-center m-2">Carrito</h1>
+        <div>
+            <p class="lineap borde p-2"></p>
+        </div> 
+            <div class="row">
+                <div class="col-xl-8 d-flex flex-wrap" style="justify-content: center;">
+                    {% if request.session.carrito.items %}
+                    {% for key, value in request.session.carrito.items %}
+                        <div class="carritocard producto-box mb-3 p-4 d-flex flex-column justify-content-between mx-3 my-2 justify-content-center">
+                            <div class="producto-img">
+                                {% if value.foto %}
+                                    <img class="producto-img" src="{{ value.foto}}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="text-center">
+                                <h3>{{value.nombre}}</h3>
+                            </div>
+                            <div class="precio text-center"><h3>$ {{value.precio}}</h3></div>
+                            <a href="{% url 'restar' value.elemento_id %}" class="badge btnrojo p-2 fs-6">Eliminar</a><br>
+                        </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-xl-4">
+                    <div class="carrito p-2 w-100">
+                        <table class="table table-responsive table-bordered table-inverse results  w-100">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if request.session.carrito.items %}
+                                {% for key, value in request.session.carrito.items %}
+                                <tr>
+                                    <td>{{value.nombre}}</td>
+                                    <td class="text-center">{{value.cantidad}} <br>
+                                        <a href="{% url 'agregar' value.elemento_id %}"
+                                            class="badge btn btn-dark badge-dark">+</a>
+                                        <a href="{% url 'restar' value.elemento_id %}"
+                                            class="badge btn btn-dark badge-dark">-</a><br>
+                                    </td>
+                                    <td>{{value.precio}} cop</td>
+                                </tr>
+                                {% endfor %}
+                                {% else %}
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="alert alert-danger text-center">Sin Productos</div>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <th scope="row">Total:</th>
+                                    <td colspan="2">$ {{total_carrito}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <div class="row text-center">
+                            <div class="col-6"><a href="{% url 'limpiar' %}" class="btnrojo mb-2">Limpiar</a></div>
+                            <div class="col-6"><a href="#" class="btnverde" data-bs-toggle="modal"
+                                    data-bs-target="#cotizar">Cotización</a></div>
+                            <div class="modal fade" id="cotizar" tabindex="-1" aria-labelledby="cotizarLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg ">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="centrar">
+                                                <h5 class="modal-title" id="cotizarLabel">Cotización
+                                                </h5>
+                                            </div>
+                                            <div> <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button></div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="color-dark d-flex justify-content-end">
+                                                <script>
+                                                    var options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+                                                    date = new Date().toLocaleDateString(undefined, options);
+                                                    date = new Date().toLocaleDateString();
+                                                    document.write(date);
+                                                </script>
+                                            </div>
+                                            <div class="formulario">
+                                                {% if request.session.carrito.items %}
+                                                <form id="form1">
+                                                    <table class="tcar table table-bordered results" id="proyectos">
+                                                        <thead class="bg-info">
+                                                            <tr class="text-white">
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Cantidad</th>
+                                                                <th scope="col">Precio</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for key, value in request.session.carrito.items %}
+                                                            <tr>
+                                                                <td>{{value.nombre}}</td>
+                                                                <td>{{value.cantidad}}</td>
+                                                                <td>{{value.precio}}</td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                            {% else %}
+                                                            <tr>
+                                                                <td colspan="3">
+                                                                    <div class="alert alert-danger text-center">Sin Productos</div>
+                                                                </td>
+                                                            </tr>
+                                                            {% endif %}
+                                                        </tbody>
+                                                    </table>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>    
+{% endblock contenido %}

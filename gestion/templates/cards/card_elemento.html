@@ -1,0 +1,28 @@
+<div class="cards producto-box m-4 p-4 d-flex flex-column justify-content-between">
+    <div class="producto-img">
+        <div class="producto">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        {% if elemento.foto %}
+                        <img class="producto-img" src="{{ elemento.foto.url }}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="flip-box-back">
+                        <p>{{elemento.descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <h3>{{elemento.nombre}}</h3>
+    </div>
+    <div class="text-center">
+        <h3>{{elemento.marca}}</h3>
+    </div>
+    <div class="precio text-center">
+        <h3>$ {{elemento.precio}}</h3>
+    </div>
+    <a href="{% url 'detalle' pk=elemento.id url_back='inicio' %}" class="agregar">Agregar</a>
+</div>

@@ -1,0 +1,51 @@
+{% extends 'partials/admin-body.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="cuerpo-admin">
+    <div class="p-5">
+        <div class="padding">
+            <h1 class="text-center font-4em">Datos del usuario</h1>
+        </div>
+        <div class="bg-ver w-tableVer centrar   ">
+            <div class="contenedorTabla  tablaProducto  ">
+                <table class=" table results  centrar font-2em tablaVer" >
+                    <thead class="borderT">
+                    <tr >
+                        <th scope="col"  >Codigo :</th>
+                        <th scope="col" >{{usuario.codigo}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col"  >Nombre :</th>
+                        <th scope="col" >{{usuario.nombre}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col"  >Apellido :</th>
+                        <th scope="col">{{usuario.apellido}} </th>
+                    </tr>
+                    <tr>
+                        <th scope="col"  >Tipo documento :</th>
+                        <th scope="col">{{usuario.tipo_documento}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col"  >Documento :</th>
+                        <th scope="col">{{usuario.documento}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col"  >Celular :</th>
+                        <th scope="col">{{usuario.celular}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" >Rol :</th>
+                        <th scope="col">{{usuario.rol}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col"  >Estado :</th>
+                        <th scope="col">{{usuario.estado}}</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

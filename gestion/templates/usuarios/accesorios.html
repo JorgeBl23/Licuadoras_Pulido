@@ -1,0 +1,38 @@
+{% extends 'partials/user-body.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="cuerpo-user">
+    <section class="contenido-cuerpo borde" >
+            <div>
+                <h1 class="text-center m-2">Accesorios</h1>
+            </div>
+            {% for subcategoria in subcategorias %}    
+{% comment %}
+            <div id="myDIV"> 
+                <h1 class="text-center ">{{subcategoria.subcategoria}}</h1>
+            </div>
+                <div class="glider-contain" id="glider-{{subcategoria.id}}">
+                    <div class="glider-cat-1 glider" id="myDIV"exfchbn n n                                                                                         n>
+{% endcomment %}
+            <div> 
+                <h3 class="text-center">{{subcategoria.subcategoria}}</h3>
+            </div>
+            <div>
+                <p class="lineap borde"></p>
+            </div> 
+                <div class="glider-contain col-xl-10" id="glider-{{subcategoria.id}}">  
+                    <div class="glider-cat-1 glider">
+                        {% for elemento in elementos %}
+                            {% if subcategoria.id == elemento.tipo_elemento_id %}
+                                {% include "cards/card_elemento.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <button class="glider-prev"><i class="flechas fas fa-chevron-circle-left"></i></button>
+                    <button class="glider-next"><i class="flechas fas fa-chevron-circle-right"></i></button>                 
+                </div>
+            {% endfor %}
+    </section>
+</div>
+{% endblock contenido %}

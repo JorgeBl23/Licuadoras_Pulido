@@ -1,0 +1,31 @@
+
+    <!-- Modal Crear -->
+
+
+    {% load crispy_forms_tags %}
+    <div class="modal fade show" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear Nuevo Usuario</h5>
+                    <a class="btn-close"
+                        data-bs-dismiss="modal" href="{% url 'usuario-tablaUsuario' %}" aria-label="Close"></a>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        
+                </div>
+                <div class="modal-footer">
+                    
+                    <a class="btn btn-secondary"
+                        data-bs-dismiss="modal" href="{% url 'usuario-tablaUsuario' %}">Cancelar</a>
+                    <input type="submit" class="btn btn-success" value="Agregar"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>

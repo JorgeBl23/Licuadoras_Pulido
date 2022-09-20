@@ -1,0 +1,122 @@
+{% load static %}
+<header>
+    <div class="navbar contenido-navbar borde">
+        <div class="logo">
+            <img title="Logo" src="{% static 'img/logoo1.png' %}" alt="">
+        </div>
+        <div class="pt2">
+            <div class="part">
+                <script>
+                    var options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+                    date = new Date().toLocaleDateString(undefined, options);
+                    document.write(date);
+                </script>
+            </div>
+            <!-- Accesibilidad -->
+            <div class=" dropdown d-flex justify-content-center">
+                <div class="acces">
+                    <button type="button" class="btn btn-light rounded-circle p-1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img class="rounded-circle" src="{% static 'img/icons/accesibilidad.svg' %}" width="33" alt=""
+                        srcset="">
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button title="Contraste" class="dropdown-item" id="dark" href=""><img
+                                src="{% static 'img/icons/eye-fill.svg' %}" width="30" alt="" srcset="">
+                            Contraste</button></li>
+                    <li><button title="Ampliar" class="dropdown-item" id="ampliar" href=""><img
+                                src="{% static 'img/icons/zoom-in.svg' %}" width="30" alt="" srcset=""> Ampliar</button>
+                    </li>
+                    <li><button title="Reducir" class="dropdown-item input-group" id="reducir"><img
+                                src="{% static 'img/icons/zoom-out.svg' %}" width="30" alt="" srcset="">Reducir
+                        </button></li>
+                    <li><button title="Restaurar" class="dropdown-item" id="restaurar" href=""><img
+                                src="{% static 'img/icons/eye-fill.svg' %}" width="30" alt="" srcset="">
+                            Restaurar</button></li>
+                </ul>
+                </div>
+                
+                <div class="dropdown salir">
+                    <a title="Salir" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'img/salir.png' %}" width="30" height="30" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-light text-small shadow" aria-labelledby="dropdownUser1">
+                        {% if user.is_authenticated %}
+                        <li><a class="dropdown-item" href="{% url 'inicio' %}">Página Inicio</a>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'usuario-logout' %}">Cerrar Sesión</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <section class="nav-menu d-flex justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light borde">
+            <div class="container-fluid d-flex justify-content-center">
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon bg-white"></span>
+                </button>
+                <div class="collapse navbar-collapse"></div> <!-- centrar contenido de navbar -->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-flex justify-content-center ">
+                            <a id="item" class="nav-link d-flex" href="{% url 'administrador-inicioadmin' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                            <div class="v-line"></div>
+                            <a id="item" class="nav-link d-flex" href="{% url 'usuario-tablaUsuario' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill me-2" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                            Usuarios</a>
+                            <div class="v-line"></div>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                            <a id="item" class="nav-link d-flex" href="{% url 'administrador-elemento' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-basket2-fill me-2" viewBox="0 0 16 16">
+                                    <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
+                                </svg>
+                            Elementos</a>
+                            <div class="v-line"></div>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                            <a id="item" class="nav-link d-flex" href="{% url 'administrador-servicio' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-wrench-adjustable me-2" viewBox="0 0 16 16">
+                                    <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z" />
+                                    <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+                                </svg>
+                            Servicios</a>
+                            <div class="v-line"></div>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                            <a id="item" class="nav-link d-flex" href="{% url 'factura-tfactura' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-receipt me-2" viewBox="0 0 16 16">
+                                    <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                                    <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                                </svg>
+                            Facturas</a>
+                            <div class="v-line"></div>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center">
+                            <a id="item" class="nav-link d-flex" href="{% url 'administrador-copiaseguridad' tipo='A'%}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cloud-download-fill me-2" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z" />
+                                </svg>
+                            Copia de Seguridad</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+</header>

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/Logooo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleadmin.css' %}">
+
+    <title>ADMIN Licuadoras - {{titulo_pagina}} </title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar contenido-navbar borde">
+            <div class="logo"><img title="Logo" src="{% static 'img/logoo1.png' %}" alt=""></div>
+            <div class="pt2">
+                <div class="part">
+                    <script>
+                        var options = {
+                            weekday: 'long',
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        };
+                        date = new Date().toLocaleDateString(undefined, options);
+                        document.write(date);
+                    </script>
+                </div>
+                <!-- Accesibilidad -->
+                <div class="dropdown d-flex justify-content-center">
+                    <button type="button" class="btn btn-light rounded-circle p-1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img class="rounded-circle" src="{% static 'img/icons/accesibilidad.svg' %}" width="33" alt=""
+                            srcset="">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><button title="Contraste" class="dropdown-item" id="dark" href=""><img
+                                    src="{% static 'img/icons/eye-fill.svg' %}" width="30" alt="" srcset="">
+                                Contraste</button></li>
+                        <li><button title="Ampliar" class="dropdown-item" id="ampliar" href=""><img
+                                    src="{% static 'img/icons/zoom-in.svg' %}" width="30" alt="" srcset="">
+                                Ampliar</button></li>
+                        <li><button title="Reducir" class="dropdown-item input-group" id="reducir"><img
+                                    src="{% static 'img/icons/zoom-out.svg' %}" width="30" alt="" srcset="">Reducir
+                            </button></li>
+                        <li><button title="Restaurar" class="dropdown-item" id="restaurar" href=""><img
+                                    src="{% static 'img/icons/eye-fill.svg' %}" width="30" alt="" srcset="">
+                                Restaurar</button></li>
+                    </ul>
+                    <div class="dropdown salir">
+                        <a title="Salir" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'img/salir.png' %}" width="30" height="30" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-light text-small shadow" aria-labelledby="dropdownUser1">
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="{% url 'inicio' %}">Página Inicio</a>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'usuario-logout' %}">Cerrar Sesión</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </header>
+    <section class="cuerpo-admin">
+        <div class="botones">
+            <div class="bt">
+                <a href="{% url 'usuario-tablaUsuario' %}" title="Usuarios"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" class="bi bi-person-fill me-2" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>Usuarios</a>
+                <a href="{% url 'administrador-elemento' %}" title="Elementos"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" class="bi bi-basket2-fill me-2" viewBox="0 0 16 16">
+                        <path
+                            d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
+                    </svg>Elementos</a>
+                <a href="{% url 'administrador-servicio' %}" title="Servicios"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" class="bi bi-wrench-adjustable me-2"
+                        viewBox="0 0 16 16">
+                        <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z" />
+                        <path
+                            d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+                    </svg>Servicios</a>
+                <a href="{% url 'factura-tfactura' %}" title="Facturas"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="currentColor" class="bi bi-receipt me-2" viewBox="0 0 16 16">
+                        <path
+                            d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                        <path
+                            d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                    </svg>Facturas</a>
+                <a class="margen " title="Copia de Seguridad" href="{% url 'administrador-copiaseguridad' tipo='A' %}"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-cloud-download-fill me-2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z" />
+                    </svg>Copia de Seguridad</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="sublogo text-center">
+            <img title="Sena" src="{% static 'img/sena.png' %}" alt="">
+        </div>
+        <div class="container-fluid borde p-3">
+            <div class="row">
+                <div class="caja col d-flex justify-content-center align-items-center">
+                    <a href="https://api.whatsapp.com/send?phone=573158322788&text=Hola!%20En%20que%20te%20puedo%20ayudar" target="_blank">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-whatsapp m-4" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                      </svg>
+                    </a>    
+                    <a href="https://www.facebook.com/Central-de-licuadoras-Pulido-103339359086680" target="_blank">    
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-facebook m-4" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                      </svg>
+                    </a>
+                    <a href="https://www.instagram.com/centraldelicuadoraspulido/" target="_blank">  
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-instagram m-4" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                      </svg>
+                    </a>
+                  </div>
+                <div class="caja1 col d-flex justify-content-center align-items-center">
+                    <a href="">www.sena.edu.co</a>
+                </div>
+                <div class="caja2 col">
+                    <a href="">Aviso legal</a>
+                    <a href="{% url 'usuarios-politicas' %}">Politica de privacidad</a>
+                    <a href="">Terminos y condiciones</a>
+                    <a href="">Fuentes de referencia</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: #fff;">
+            © 2022 Copyright
+        </div>
+    </footer>
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
